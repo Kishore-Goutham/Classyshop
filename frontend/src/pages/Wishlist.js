@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 
 function Wishlist() {
     
-    let {myList,SetmyList,fetchMyList} = useContext(dataContext)
+    let {myList,fetchMyList} = useContext(dataContext)
 
    async function deleteList(id){
        try{

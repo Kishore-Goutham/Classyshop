@@ -15,7 +15,7 @@ import { dataContext } from '../context/Context';
 import { toast } from 'react-toastify';
 
 function ProductDetails() {
-  let{cartProducts, SetcartProducts,fetchCart} = useContext(dataContext)
+  let{SetcartProducts} = useContext(dataContext)
   let[productActionIndex, SetproductActionIndex] = useState(null)
   let [productData, SetProductData]= useState({})
   let [relatedProduct, SetrelatedProduct]= useState([]);

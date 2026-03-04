@@ -1,7 +1,6 @@
 import React from 'react'
-import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/styles.min.css';
-import kurti2 from '../../assests/regularshirt.webp'
+
 
 function Productzoom({img}) {
   return (

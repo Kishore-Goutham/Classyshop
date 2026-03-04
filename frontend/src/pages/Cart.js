@@ -1,5 +1,4 @@
 import React from "react";
-import kurti from "../assests/kurti.png";
 import { Link } from "react-router-dom";
 import { IoMdClose } from "react-icons/io";
 import Button from "@mui/material/Button";
@@ -8,7 +7,7 @@ import { dataContext } from "../context/Context";
 import { useContext } from "react";
 
 function Cart() {
-  let { cartProducts, SetcartProducts, deleteCart } = useContext(dataContext);
+  let { cartProducts, deleteCart } = useContext(dataContext);
   return (
     <section className="px-10 py-7">
       <div className="container  mx-auto">
@@ -29,6 +28,7 @@ function Cart() {
                     <Link to={`/productdetails/${cart.productId._id}`}>
                       <img
                         src={cart.productId.images}
+                        alt="category"
                         className="w-full h-full  rounded-md"
                       />
                     </Link>

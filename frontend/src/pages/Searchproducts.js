@@ -33,7 +33,7 @@ function Searchproducts() {
       }
     }
     searchProducts();
-  }, [query, page]);
+  }, [query, page,limit]);
 
   return (
     <section className="">

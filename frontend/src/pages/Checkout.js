@@ -1,5 +1,4 @@
 import React from "react";
-import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { FaBagShopping } from "react-icons/fa6";
 import { useContext } from "react";
@@ -141,7 +140,7 @@ function Checkout() {
                 <div className="flex justify-between mt-4 mb-5">
                   <div className="w-[50%] flex gap-3">
                     <img
-                      src={cart.productId.images}
+                      src={cart.productId.images} alt='products'
                       className="w-[30%] rounded-md h-20"
                     />
                     <p>

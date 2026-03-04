@@ -7,12 +7,11 @@ import {
   postData,
   updateData,
   deleteData,
-  fetchDataFromApi,
 } from "../utils/api";
 import { toast } from "react-toastify";
 
 export default function Address() {
-  const { addresses, setAddresses,refreshAddresses,fetchAddress,handleDefault } = useContext(dataContext);
+  const { addresses,fetchAddress,handleDefault } = useContext(dataContext);
 
   const [open, setOpen] = useState(false);
   const [editData, setEditData] = useState(null);

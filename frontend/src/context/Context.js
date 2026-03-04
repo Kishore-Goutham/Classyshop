@@ -32,8 +32,9 @@ function Context({ children }) {
     }
     addresses.map((item)=>{
       if(item.isDefault){
-        SetselectedAddress(item)
+      SetselectedAddress(item)
       }
+      
     })
      console.log("k")
   },[addresses])
