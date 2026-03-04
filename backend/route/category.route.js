@@ -9,7 +9,7 @@ const categoryRouter = Router();
 
 
 categoryRouter.post("/createCategory",authMiddleware,upload.array('images'),createCategory)
-categoryRouter.get("/",authMiddleware,getCatogories)
+categoryRouter.get("/",getCatogories)
 categoryRouter.get("/get/count",authMiddleware,getCategoriesCount)
 categoryRouter.get("/get/count/subCat",authMiddleware,getSubCategoriesCount)
 categoryRouter.get('/:id',authMiddleware,getCategory)

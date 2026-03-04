@@ -22,6 +22,7 @@ function Context({ children }) {
     fetchCart();
     fetchMyList();
     fetchAddress();
+    fetchCatData();
   }, []); // empty dependency
 
   useEffect(() => {
@@ -111,7 +112,7 @@ function Context({ children }) {
     }
   };
 
-  useEffect(() => {
+  
     async function fetchCatData() {
       try {
         let data = await fetchDataFromApi("/api/category");
@@ -122,8 +123,7 @@ function Context({ children }) {
         console.log(err);
       }
     }
-    fetchCatData();
-  }, []);
+ 
 
   let value = {
     isLogin,
