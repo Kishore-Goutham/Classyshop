@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #f5f0f0;
+}
+
+
+
+/* Hide scrollbar for Chrome, Safari */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar{
+  width: 10px !important;
+  height: 10px !important;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: lightsalmon !important;
+}
+
+/* Hide scrollbar for IE, Edge, Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Change arrow color and size */
+.mySwiper {
+  --swiper-navigation-color: black;  /* arrow color */
+  --swiper-navigation-size: 14px;    /* arrow size */
+}
+
+/* Style button background */
+.mySwiper .swiper-button-prev,
+.mySwiper .swiper-button-next {
+  background-color: white;
+  padding: 5px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Hover effect */
+.mySwiper .swiper-button-prev:hover,
+.mySwiper .swiper-button-next:hover {
+  background-color: black;
+  --swiper-navigation-color: white;
+}
+
+/* Tab text hover */
+.MuiTabs-root .MuiTab-root:hover {
+  color: #ff5252 !important;
+}
+
+/* Selected tab text */
+.MuiTabs-root .MuiTab-root.Mui-selected {
+  color: #ff5252 !important;
+}
+
+/* Indicator color (THIS fixes your issue) */
+.MuiTabs-root .MuiTabs-indicator {
+  background-color: #ff5252 !important;
+  height: 3px; /* optional */
+}
+
+.link:hover{
+    color: #ff5252 !important;
+}
+
+.productitem:hover .actions{
+  top:2px;
+  transition:0.40s
+}
+
+.Mui-selected.MuiPaginationItem-page{
+  background: #ff5252 !important;
+  color: #fff !important;
+}
+
+.size Button{
+    min-width: 40px !important;
+    height: 30px !important;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.MuiButton-root {
+  transition: all 0.3s ease !important;
+}
+
+.MuiButton-root:hover {
+  background-color: red !important;
+  color:white !important
+  
+}
+
+
+/*
+Source - https://stackoverflow.com/a/22306944
+Posted by JayD, modified by community. See post 'Timeline' for change history
+Retrieved 2026-02-18, License - CC BY-SA 4.0
+*/
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+.accoverlay{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.otpBox input {
+  border: 1px solid rgba(0,0,0,0.3) !important;
+  outline: none !important;
+  border-radius: 4px;
+}
+
+.otpBox input:focus {
+  border: 1px solid rgba(0,0,0,0.7) !important;
+}
+
+.otpPage .container {
+  height: 90vh;
+  display: flex;
+}

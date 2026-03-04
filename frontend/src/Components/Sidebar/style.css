@@ -1,0 +1,82 @@
+.scroll {
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 4px;
+}
+
+/* Proper spacing between items */
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 2px 0;
+    padding: 4px 6px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+/* hover effect */
+.sidebar-item:hover {
+    background: #f4f4f5;
+}
+
+
+/* Thin modern scrollbar */
+.scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background: #d4d4d8;
+    border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+    background: #a1a1aa;
+}
+
+/* Firefox */
+.scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #d4d4d8 transparent;
+}
+
+/* remove default blue color */
+.range-slider {
+  height: 3px !important;
+  background: transparent !important;
+}
+
+/* grey background line */
+.range-slider .range-slider__track {
+  background: #e0e0e0 !important;
+  height: 3px !important;
+  border-radius: 10px;
+}
+
+/* red active line */
+.range-slider .range-slider__range {
+  background: #ff5252 !important;
+  height: 3px !important;
+  border-radius: 10px;
+}
+
+/* small red circle thumbs */
+.range-slider .range-slider__thumb {
+  width: 12px !important;
+  height: 12px !important;
+  background: #ff5252 !important;
+  border: none !important;
+  border-radius: 50%;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+
+
+

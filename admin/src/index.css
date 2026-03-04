@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{ font-family: "Montserrat", sans-serif;background-color: #f1f1f1;}
+
+::-webkit-scrollbar{
+  width: 10px !important;
+  height: 10px !important;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: #ccc !important;
+}
+
+.mySwiper {
+  --swiper-navigation-color: black;  /* arrow color */
+  --swiper-navigation-size: 14px;    /* arrow size */
+}
+
+.mySwiper .swiper-button-prev,
+.mySwiper .swiper-button-next {
+  /* background-color: white; */
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.mySwiper .swiper-button-prev:hover,
+.mySwiper .swiper-button-next:hover {
+  background-color: black;
+  --swiper-navigation-color: white;
+}
+
+th.MuiTableCell-root{@apply bg-[#f1f1f1]}
