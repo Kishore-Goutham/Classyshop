@@ -10,7 +10,8 @@ import { toast } from "react-toastify";
 import CircularProgress from '@mui/material/CircularProgress';
 import auth from "../Config/Firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-
+import { useContext } from "react";
+import { dataContext } from "../App";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -19,6 +20,8 @@ function Register() {
   let navigate = useNavigate();
   let [isloading,Setisloading]= useState(false)
   let [formfields, Setformfields] = useState({});
+
+  let {checkUser}= useContext(dataContext)
 
   function handleInput(e) {
     let key = e.target.id;
@@ -70,6 +73,7 @@ function Register() {
       if (data.success) {
         localStorage.setItem("accessToken", data.tokens.accessToken);
         localStorage.setItem("refreshToken", data.tokens.refreshToken);
+        await checkUser()
         navigate("/");
         toast.success("login successfull", {
           position: "top-center",

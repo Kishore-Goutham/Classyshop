@@ -10,7 +10,7 @@ import { dataContext } from "../App";
 import ProductList from "../components/ProductList";
 
 function Dashboard() {
-  let { isSidebaropen } = useContext(dataContext);
+  let { isSidebaropen,isLogin,userData} = useContext(dataContext);
   let arr = ["order1", "order2", "order3"];
   let [isOpenProduct, SetisOpenProduct] = useState(null);
 
@@ -38,7 +38,8 @@ function Dashboard() {
           
           <div className="w-full md:w-auto text-center md:text-left">
             <h1 className="text-2xl md:text-3xl font-bold">
-              Good Morning <br /> Kishore
+              Good Morning <br />
+              {isLogin &&  userData.name}
             </h1>
 
             <p className="mt-2 mb-5 text-slate-500 text-sm md:text-base">

@@ -10,15 +10,20 @@ import { postData } from "../utilis/api";
 import CircularProgress from "@mui/material/CircularProgress";
 import auth from "../Config/Firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useContext } from "react";
+import { dataContext } from "../App";
+
+
 const googleProvider = new GoogleAuthProvider();
+
 
 function Login() {
   let navigate = useNavigate();
- 
+    
   let [formfields, Setformfields] = useState({ email: "", password: "" });
   let [isloading, Setisloading] = useState(false);
    
-
+    let {checkUser}= useContext(dataContext)
 
   function handleInput(e) {
     let key = e.target.id;
@@ -37,7 +42,11 @@ function Login() {
       if (data.success) {
         localStorage.setItem("accessToken", data.tokens.accessToken);
         localStorage.setItem("refreshToken", data.tokens.refreshToken);
+        await checkUser();
        navigate("/");
+         toast.success("Login successful", {
+        position: "top-center",
+      });
       }
     } catch (err) {
       toast.error(err, {
@@ -70,6 +79,7 @@ function Login() {
           localStorage.setItem("accessToken", data.tokens.accessToken);
           localStorage.setItem("refreshToken", data.tokens.refreshToken);
           navigate("/");
+          await checkUser()
           toast.success("login successfull", {
             position: "top-center",
           });

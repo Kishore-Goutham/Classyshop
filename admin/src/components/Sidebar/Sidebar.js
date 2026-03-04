@@ -5,15 +5,20 @@ import { FaAngleDown } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import { dataContext } from "../../App";
 import { Link } from "react-router-dom";
+import { fetchDataFromApi } from "../../utilis/api";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
   let {
     isLogin,
+    SetisLogin,
     isSidebaropen,
     SetisSidebaropen,
     SetisOpenFullScreenPanel,
   } = useContext(dataContext);
-
+    
+  let navigate = useNavigate();
   let [dropDownindex, SetdropDownindex] = useState(null);
 
   function handleDropdown(index) {
@@ -21,6 +26,24 @@ function Sidebar() {
       SetdropDownindex(null);
     } else {
       SetdropDownindex(index);
+    }
+  }
+  async function handleLogout() {
+    const isConfirmed = window.confirm("Are you sure you want to logout?");
+    if (isConfirmed) {
+      try {
+        const data = await fetchDataFromApi("/api/user/logout");
+        if (data.success) {
+          localStorage.removeItem("accessToken");
+          localStorage.removeItem("refreshToken");
+          SetisLogin(false);
+          navigate("/");
+        }
+      } catch (err) {
+        toast.error(err, {
+          position: "top-center",
+        });
+      }
     }
   }
 
@@ -209,7 +232,7 @@ function Sidebar() {
           <li>
             <Button className="w-full !justify-start text-lg gap-2 !text-black">
               <RxDashboard />
-              {isSidebaropen && <span>Logout</span>}
+              {isSidebaropen && <span onClick={handleLogout}>Logout</span>}
             </Button>
           </li>
         ) : (

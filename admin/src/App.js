@@ -1,17 +1,17 @@
-import {  createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import { createContext } from "react";
 import { useState } from "react";
 import Login from "./pages/Login";
 import Products from "./pages/Products";
 import Addproduct from "./pages/Addproduct";
-import Dialog from '@mui/material/Dialog';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
+import Dialog from "@mui/material/Dialog";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 import { FaXmark } from "react-icons/fa6";
-import Slide from '@mui/material/Slide';
+import Slide from "@mui/material/Slide";
 import React from "react";
 import CategoryList from "./pages/CategoryList";
 import AddCategory from "./pages/AddCategory";
@@ -29,92 +29,108 @@ import Addthirdlevelcat from "./pages/Addthirdlevelcat";
 import ProductList from "./components/ProductList";
 import EditProduct from "./pages/Editproduct";
 
-
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export const dataContext = createContext();
 function App() {
-   
-  let[isSidebaropen,SetisSidebaropen]= useState(false)
-  let[isLogin,SetisLogin]=useState(false)
-  let[isOpenFullScreenPanel,SetisOpenFullScreenPanel] = useState({open:false,model:""})
+  let [isSidebaropen, SetisSidebaropen] = useState(false);
+  let [isLogin, SetisLogin] = useState(false);
+  let [isOpenFullScreenPanel, SetisOpenFullScreenPanel] = useState({
+    open: false,
+    model: "",
+  });
+  let [userData, SetuserData] = useState([]);
+  let [catData, SetcatData] = useState([]);
 
+  useEffect(() => {
+    fetchCat();
+  }, []);
 
-   let[catData, SetcatData]= useState([])
-
-    useEffect(()=>{
-      fetchCat();
-    },[])
-
-       let fetchCat = async ()=>{
-        try{
-        let data = await fetchDataFromApi("/api/category/");
-        if(data.success){
-          SetcatData(data.rootCategories)
-        }
-      }catch(err){
-         console.log(err)
+  let checkUser = async ()=>{
+     let token = localStorage.getItem('accessToken')
+     if(token){
+      SetisLogin(true)
+        try {
+      let data = await fetchDataFromApi("/api/user/user-details");
+      if (data.success) {
+         SetuserData(data.data)
       }
+    } catch (err) {
+      console.log(err);
+    }
+  }else{
+    SetisLogin(false)
+  }
+  }
+
+  let fetchCat = async () => {
+    try {
+      let data = await fetchDataFromApi("/api/category/");
+      if (data.success) {
+        SetcatData(data.rootCategories);
       }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   let route = createBrowserRouter([
     {
-      path : "/",
-      element:<Dashboard/>
+      path: "/",
+      element: <Dashboard />,
     },
     {
-      path : "/login",
-      element:<Login/>
-    },
-     {
-      path : "/register",
-      element:<Register/>
-    },
-     {
-      path : "/products",
-      element:<Products/>
+      path: "/login",
+      element: <Login />,
     },
     {
-      path : "/productlist",
-      element:<ProductList/>
-    },
-      {
-      path : "/product/upload",
-      element:<Addproduct/>
-    },
-     {
-      path : "/category/list",
-      element:<CategoryList/>
-    },
-     {
-      path : "/subcategory/list",
-      element:<SubCategoryList/>
+      path: "/register",
+      element: <Register />,
     },
     {
-      path : "/thirdlevelcat/list",
-      element:<Thirdlevelcat/>
+      path: "/products",
+      element: <Products />,
     },
     {
-      path : "/thirdlevelcat/",
-      element:<Addthirdlevelcat/>
+      path: "/productlist",
+      element: <ProductList />,
     },
-      {
-      path : "/addcategory",
-      element:<AddCategory/>
+    {
+      path: "/product/upload",
+      element: <Addproduct />,
     },
-     {
-      path : "/editcategory/:id",
-      element:<EditCategory/>
+    {
+      path: "/category/list",
+      element: <CategoryList />,
     },
-     {
-      path : "/editproduct/:id",
-      element:<EditProduct/>
+    {
+      path: "/subcategory/list",
+      element: <SubCategoryList />,
     },
-
-  ])
-  let value={
+    {
+      path: "/thirdlevelcat/list",
+      element: <Thirdlevelcat />,
+    },
+    {
+      path: "/thirdlevelcat/",
+      element: <Addthirdlevelcat />,
+    },
+    {
+      path: "/addcategory",
+      element: <AddCategory />,
+    },
+    {
+      path: "/editcategory/:id",
+      element: <EditCategory />,
+    },
+    {
+      path: "/editproduct/:id",
+      element: <EditProduct />,
+    },
+  ]);
+  let value = {
     isSidebaropen,
     SetisSidebaropen,
     isLogin,
@@ -123,43 +139,55 @@ function App() {
     catData,
     SetcatData,
     fetchCat,
-    SetisLogin
-  }
+    SetisLogin,
+    userData,
+    checkUser
+  };
   return (
     <div>
       <dataContext.Provider value={value}>
-     <RouterProvider router={route}/>
-      <Dialog
-        fullScreen
-        open={isOpenFullScreenPanel.open}
-        onClose={()=>SetisOpenFullScreenPanel({...isOpenFullScreenPanel,open:false})}
-        slots={{
-          transition: Transition,
-        }}
-      >
-        <AppBar sx={{ position: 'relative' }}>
-          <Toolbar>
-            <IconButton
-              edge="start"
-              color="inherit"
-              onClick={()=>SetisOpenFullScreenPanel({...isOpenFullScreenPanel,open:false})}
-              aria-label="close"
-            >
-              <FaXmark/>
-            </IconButton>
-            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              {isOpenFullScreenPanel.model}
-            </Typography>
-          </Toolbar>
-        </AppBar>
-          {isOpenFullScreenPanel.model==="Add Product" && <Addproduct/>}
-          {isOpenFullScreenPanel.model==="Add Category" && <AddCategory/>}
-          {isOpenFullScreenPanel.model==="Add Sub Category" && <AddSubCategory/>}
-          {isOpenFullScreenPanel.model==="Add third category" && <Addthirdlevelcat/>}
-      </Dialog>
-      <ToastContainer/>
-     </dataContext.Provider>
-   
+        <RouterProvider router={route} />
+        <Dialog
+          fullScreen
+          open={isOpenFullScreenPanel.open}
+          onClose={() =>
+            SetisOpenFullScreenPanel({ ...isOpenFullScreenPanel, open: false })
+          }
+          slots={{
+            transition: Transition,
+          }}
+        >
+          <AppBar sx={{ position: "relative" }}>
+            <Toolbar>
+              <IconButton
+                edge="start"
+                color="inherit"
+                onClick={() =>
+                  SetisOpenFullScreenPanel({
+                    ...isOpenFullScreenPanel,
+                    open: false,
+                  })
+                }
+                aria-label="close"
+              >
+                <FaXmark />
+              </IconButton>
+              <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+                {isOpenFullScreenPanel.model}
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          {isOpenFullScreenPanel.model === "Add Product" && <Addproduct />}
+          {isOpenFullScreenPanel.model === "Add Category" && <AddCategory />}
+          {isOpenFullScreenPanel.model === "Add Sub Category" && (
+            <AddSubCategory />
+          )}
+          {isOpenFullScreenPanel.model === "Add third category" && (
+            <Addthirdlevelcat />
+          )}
+        </Dialog>
+        <ToastContainer />
+      </dataContext.Provider>
     </div>
   );
 }
