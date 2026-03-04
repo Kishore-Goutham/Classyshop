@@ -7,9 +7,9 @@ import { useContext } from "react";
 
 
 function Profile() {
-  let { isOpenFullScreenPanel, SetisOpenFullScreenPanel, isSidebaropen } = useContext(dataContext);
-  let [isOpenProduct, SetisOpenProduct] = useState(null);
-  const [categoryFilterval, SetcategoryFilterval] = useState("");
+  let { isSidebaropen } = useContext(dataContext);
+  // let [isOpenProduct, SetisOpenProduct] = useState(null);
+  // const [categoryFilterval, SetcategoryFilterval] = useState("");
     
   let[val,setVal]= useState("welcome")
   function handleInput(e){

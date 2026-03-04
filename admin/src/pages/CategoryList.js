@@ -26,7 +26,7 @@ const columns = [
 ];
 
 function CategoryList() {
-  let { isOpenFullScreenPanel,catData,SetisOpenFullScreenPanel, isSidebaropen } =useContext(dataContext);
+  let {catData,SetisOpenFullScreenPanel, isSidebaropen } =useContext(dataContext);
   
 
   const [page, setPage] = useState(0);

@@ -10,7 +10,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 
 function Addthirdlevelcat() {
-  let { fetchCat, catData } = useContext(dataContext);
+  let { catData } = useContext(dataContext);
   let [isloading, Setisloading] = useState(false);
   let [formfields, Setformfields] = useState({
     name: "",

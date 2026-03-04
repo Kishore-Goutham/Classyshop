@@ -1,4 +1,4 @@
-import { BrowserRouter, createBrowserRouter, RouterProvider, Routes } from "react-router-dom";
+import {  createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import { createContext } from "react";
 import { useState } from "react";
@@ -19,7 +19,7 @@ import Register from "./pages/Register";
 import ForgetPassword from "./pages/ForgetPassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Profile from "./pages/Profile";
+// import Profile from "./pages/Profile";
 import EditCategory from "./pages/EditCategory";
 import SubCategoryList from "./pages/SubCategoryList";
 import { useEffect } from "react";
@@ -29,6 +29,7 @@ import Thirdlevelcat from "./pages/Thirdlevelcat";
 import Addthirdlevelcat from "./pages/Addthirdlevelcat";
 import ProductList from "./components/ProductList";
 import EditProduct from "./pages/Editproduct";
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -109,10 +110,6 @@ function App() {
       element:<AddCategory/>
     },
      {
-      path : "/profile",
-      element:<Profile/>
-    },
-     {
       path : "/editcategory/:id",
       element:<EditCategory/>
     },
@@ -131,6 +128,7 @@ function App() {
     catData,
     SetcatData,
     fetchCat,
+    SetisLogin
   }
   return (
     <div>

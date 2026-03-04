@@ -18,7 +18,7 @@ import { CiEdit } from "react-icons/ci";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { useEffect } from "react";
 import { fetchDataFromApi } from "../utilis/api";
-
+ 
 const label = { slotProps: { input: { "aria-label": "Checkbox demo" } } };
 const columns = [
   { id: "categoryname", label: "Category Name", minWidth: 100 },

@@ -8,7 +8,7 @@ import { IoStatsChartSharp } from "react-icons/io5";
 // Import Swiper styles
 import 'swiper/css';
 
-
+ 
 function Dashboardboxes() {
   return (
     <div className='mt-5'>

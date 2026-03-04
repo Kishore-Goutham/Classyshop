@@ -47,7 +47,7 @@ function Dashboard() {
           </div>
 
           <div className="w-[25%]">
-            <img src={undraw} className="w-[full]"></img>
+            <img src={undraw} alt="" className="w-[full]"></img>
           </div>
         </section>
         <Dashboardboxes />
@@ -159,7 +159,7 @@ function Dashboard() {
 
                                 <tbody>
                                   <tr className="hover:bg-gray-50">
-                                    <th className="px-10 py-10 border"></th>
+                                   <th className="px-10 py-10 border"></th>
                                     <td className="px-4 py-3 border text-green-400 font-semibold cursor-pointer">
                                       67514d9914da0b78a342b261
                                     </td>

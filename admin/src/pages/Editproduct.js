@@ -10,7 +10,7 @@ import { FaXmark } from "react-icons/fa6";
 import { useContext } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Button } from "@mui/material";
-import { fetchDataFromApi, postData, updateData } from "../utilis/api";
+import { fetchDataFromApi, updateData } from "../utilis/api";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
@@ -24,7 +24,7 @@ function EditProduct() {
   let [productRam, SetproductRAM] = useState([]);
   let [productWeight, SetproductWeight] = useState([]);
   let [productSize, SetproductSize] = useState([]);
-
+ 
   let [formfields, Setformfields] = useState({
     name: "",
     description: "",
@@ -84,7 +84,7 @@ function EditProduct() {
     SetproductSize(value);
     Setformfields({ ...formfields, size: value });
   }
-
+  
   const [images, setImages] = useState([]);
 
   function handleImageChange(e) {
@@ -116,6 +116,7 @@ function EditProduct() {
       toast.error("Add details", {
         position: "top-center",
       });
+      console.log(productCat,productSubCat,productFeatured,productRam,productWeight,productSize)
       return;
     }
     if (!formfields.catId) {

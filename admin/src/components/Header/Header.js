@@ -18,7 +18,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     padding: '0 4px',
   },
 }));
-
+ 
 function Header() {
       let {SetisSidebaropen,isSidebaropen} = useContext(dataContext)
   return (
@@ -37,7 +37,7 @@ function Header() {
                         </StyledBadge>
                         </IconButton>
                 </div>
-        <Link to={"/profile"}> <Button className='!min-w-10 !h-10 !rounded-full'> <FaRegUser className='!text-2xl !text-black' /></Button> </Link>  
+        <Link> <Button className='!min-w-10 !h-10 !rounded-full'> <FaRegUser className='!text-2xl !text-black' /></Button> </Link>  
         </div>
 
     </header>

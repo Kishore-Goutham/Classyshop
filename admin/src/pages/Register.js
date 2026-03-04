@@ -26,7 +26,7 @@ function Register() {
                 <p className='mt-4 text-center'>Already have an account?<Link to={"/login"} className='text-[#ff5252] hover:underline font-semibold'>Login</Link></p>
                  <p className='text-center mt-3 mb-2'>or</p>  
                 <Button className='gap-3 w-full !bg-[#f1f1f1] text-center !font-semibold !text-black'><FcGoogle className='!text-xl'/>Login with Google</Button>
-              
+               
             </form>
         </div>
 

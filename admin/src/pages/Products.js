@@ -5,7 +5,7 @@ import ProductList from "../components/ProductList";
 import { dataContext } from "../App";
 import { useContext } from "react";
 
-
+ 
 function Products() {
    let {  isSidebaropen } = useContext(dataContext);
 

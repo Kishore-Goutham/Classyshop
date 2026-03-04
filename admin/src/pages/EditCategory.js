@@ -4,7 +4,7 @@ import { FaXmark } from "react-icons/fa6";
 import { useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
-import { fetchDataFromApi, postData } from "../utilis/api";
+import { fetchDataFromApi } from "../utilis/api";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -23,7 +23,7 @@ function EditCategory() {
     name: "",
   });
   const [images, setImages] = useState([]);
-
+ 
   let { id } = useParams();
   
 
@@ -34,7 +34,7 @@ function EditCategory() {
        setImages(data.category.images)
     }
     fetchid();
-  }, []);
+  }, [id]);
 
   function handleImageChange(e) {
     setImages([...images, ...e.target.files]); //converting to array so we can use map and foreach
