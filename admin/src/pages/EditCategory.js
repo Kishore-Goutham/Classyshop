@@ -102,7 +102,7 @@ function EditCategory() {
 
         <div className="py-7">
           <h1 className="text-lg font-semibold">Category Image</h1>
-          <div className="grid grid-cols-7 gap-2">
+          <div className="grid md:grid-cols-7 grid-cols-2 gap-2">
             {images.map((item, index) => {
               return (
                 <div

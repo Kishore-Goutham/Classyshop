@@ -20,49 +20,49 @@ function Dashboardboxes() {
         className="mySwiper"
       >
         <SwiperSlide>
-            <div className=' border p-5 border-slate-200 rounded-md shadow-md bg-white flex justify-between items-center gap-4 rouded-md'>
+            <div className=' border p-2 md:p-5 border-slate-200 rounded-md shadow-md bg-white flex justify-between items-center gap-4 rouded-md'>
                   <div className=''>
                         <h1 className='font-light text-sm text-slate-500'>New Orders</h1>
-                        <p className='text-2xl font-bold mt-1'>1,320</p>
+                        <p className=' text-lg md:text-2xl font-bold mt-1'>1,320</p>
                   </div>
-                  <IoStatsChartSharp className='text-[#3872fa] text-3xl' />
+                  <IoStatsChartSharp className='text-[#3872fa] hidden md:block text-3xl' />
             </div>
         </SwiperSlide>
          <SwiperSlide>
-            <div className='bg-white border p-5 border-slate-200 rounded-md shadow-md flex justify-between items-center gap-4 rouded-md'>
+            <div className='bg-white border p-2 md:p-5 border-slate-200 rounded-md shadow-md flex justify-between items-center gap-4 rouded-md'>
                   <div className=''>
                         <h1 className='font-light text-sm text-slate-500'>Sales</h1>
-                        <p className='text-2xl font-bold mt-1'>1,320</p>
+                        <p className=' text-lg md:text-2xl font-bold mt-1'>1,320</p>
                   </div>
-                  <IoStatsChartSharp className='text-green-500 text-3xl' />
+                  <IoStatsChartSharp className='text-green-500 hidden md:block text-3xl' />
             </div>
         </SwiperSlide>
          <SwiperSlide>
-            <div className='bg-white border p-5 border-slate-200 rounded-md shadow-md flex justify-between items-center gap-4 rouded-md'>
+            <div className='bg-white border p-2  md:p-5 border-slate-200 rounded-md shadow-md flex justify-between items-center gap-4 rouded-md'>
                   <div className=''>
                         <h1 className='font-light text-sm text-slate-500'>Revenue</h1>
-                        <p className='text-2xl font-bold mt-1'>1,320</p>
+                        <p className=' text-lg md:text-2xl font-bold mt-1'>1,320</p>
                   </div>
-                  <IoStatsChartSharp className='text-[#7928ca] text-3xl' />
+                  <IoStatsChartSharp className='text-[#7928ca] hidden md:block text-3xl' />
             </div>
         </SwiperSlide>
 
          <SwiperSlide>
-            <div className='border p-5 bg-white border-slate-200 rounded-md shadow-md flex justify-between items-center gap-4 rouded-md'>
+            <div className='border p-2 md:p-5 bg-white border-slate-200 rounded-md shadow-md flex justify-between items-center gap-4 rouded-md'>
                   <div className=''>
                         <h1 className='font-light text-sm text-slate-500'>New Orders</h1>
-                        <p className='text-2xl font-bold mt-1'>1,320</p>
+                        <p className=' text-lg md:text-2xl font-bold mt-1'>1,320</p>
                   </div>
-                  <IoStatsChartSharp className='text-[#3872fa] text-3xl' />
+                  <IoStatsChartSharp className='text-[#3872fa] hidden md:block text-3xl' />
             </div>
         </SwiperSlide>
            <SwiperSlide>
-            <div className=' border p-5 bg-white border-slate-200 rounded-md shadow-md flex justify-between items-center gap-4 rouded-md'>
+            <div className=' border p-2 md:p-5 bg-white border-slate-200 rounded-md shadow-md flex justify-between items-center gap-4 rouded-md'>
                   <div className=''>
                         <h1 className='font-light text-sm text-slate-500'>New Orders</h1>
-                        <p className='text-2xl font-bold mt-1'>1,320</p>
+                        <p className=' text-lg md:text-2xl font-bold mt-1'>1,320</p>
                   </div>
-                  <IoStatsChartSharp className='text-[#3872fa] text-3xl' />
+                  <IoStatsChartSharp className='text-[#3872fa] hidden md:block text-3xl' />
             </div>
         </SwiperSlide>
         

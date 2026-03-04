@@ -16,7 +16,6 @@ import React from "react";
 import CategoryList from "./pages/CategoryList";
 import AddCategory from "./pages/AddCategory";
 import Register from "./pages/Register";
-import ForgetPassword from "./pages/ForgetPassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import Profile from "./pages/Profile";
@@ -72,10 +71,6 @@ function App() {
      {
       path : "/register",
       element:<Register/>
-    },
-    {
-      path : "/forget-password",
-      element:<ForgetPassword/>
     },
      {
       path : "/products",

@@ -67,7 +67,7 @@ function AddCategory() {
           <input
             type="text"
             id="name"
-            className="border border-slate-300 outline-none p-2 w-[25%]"
+            className="border border-slate-300 outline-none p-2 md:w-[25%] w-[60%]"
             onChange={handleInput}
             required
           ></input>
@@ -75,7 +75,7 @@ function AddCategory() {
 
         <div className="py-7">
           <h1 className="text-lg font-semibold">Category Image</h1>
-          <div className="grid grid-cols-7 gap-2">
+          <div className="grid md:grid-cols-7 grid-cols-2 gap-2">
             {images.map((file, index) => {
               return (
                 <div
