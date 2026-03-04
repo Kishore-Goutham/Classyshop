@@ -33,7 +33,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 function Header() {
   let navigate = useNavigate();
-  let { isLogin, SetisLogin, userData, cartProducts, deleteCart, myList } =
+  let { isLogin, SetisLogin, userData, cartProducts, deleteCart, myList,SetcartProducts,SetmyList } =
     useContext(dataContext);
   let [cartoverlay, setCartoverlay] = useState(false);
   let [profileoverlay, setProfileoverlay] = useState(false);
@@ -52,6 +52,8 @@ function Header() {
           localStorage.removeItem("accessToken");
           localStorage.removeItem("refreshToken");
           SetisLogin(false);
+          SetcartProducts([])
+          SetmyList([]);
           navigate("/");
         }
       } catch (err) {
