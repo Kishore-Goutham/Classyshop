@@ -20,7 +20,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://classyshop-seven.vercel.app/"
+    "https://classyshop-kb8m95326-kishore-gouthams-projects.vercel.app"
   ],
   credentials: true
 }));;
