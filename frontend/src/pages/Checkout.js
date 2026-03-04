@@ -78,12 +78,13 @@ function Checkout() {
             year:'numeric'
           }),
         };
+        console.log(payLoad)
       },
       theme: {
         color: "#ff5252",
       },
     };
-
+     
     const pay = new window.Razorpay(options);
     pay.open();
   }

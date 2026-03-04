@@ -86,7 +86,7 @@ function Sidebar(props) {
   useEffect(() => {
     if (filters.catId.length === 0 && filters.subCatId.length === 0) return
     filterData();
-  }, [filters]);
+  }, [filters,filterData]);
 
   return (
     <aside className="w-full bg-white p-3 rounded-lg shadow-sm">
