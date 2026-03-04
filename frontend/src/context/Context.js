@@ -143,8 +143,6 @@ function Context({ children }) {
     fetchAddress,
     handleDefault,
     selectedAddress,
-    SetcartProducts,
-    SetmyList
   };
 
   return <dataContext.Provider value={value}>{children}</dataContext.Provider>;
