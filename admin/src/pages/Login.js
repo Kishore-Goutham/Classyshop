@@ -43,10 +43,10 @@ function Login() {
         localStorage.setItem("accessToken", data.tokens.accessToken);
         localStorage.setItem("refreshToken", data.tokens.refreshToken);
         await checkUser();
-       navigate("/");
          toast.success("Login successful", {
         position: "top-center",
       });
+       navigate("/");
       }
     } catch (err) {
       toast.error(err, {

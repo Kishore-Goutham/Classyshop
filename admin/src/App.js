@@ -46,6 +46,7 @@ function App() {
 
   useEffect(() => {
     fetchCat();
+    checkUser();
   }, []);
 
   let checkUser = async ()=>{
