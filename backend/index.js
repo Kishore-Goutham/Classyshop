@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 app.use(cors({
   origin: [
-    "http://localhost:3000",
+    "https://classyshop-1j4g-nbe0mcxct-kishore-gouthams-projects.vercel.app/",
     "https://classyshop-kb8m95326-kishore-gouthams-projects.vercel.app"
   ],
   credentials: true
