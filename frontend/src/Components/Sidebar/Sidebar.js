@@ -11,7 +11,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { postData } from "../../utils/api";
 
-function Sidebar(props) {
+function Sidebar({ SetproductsData, SettotalPages, page }) {
   let location = useLocation();
   let { catData } = useContext(dataContext);
   const [price, Setprize] = useState([0, 60000]);
@@ -60,19 +60,19 @@ function Sidebar(props) {
     }
   }, [location.search]);
 
-  async function filterData() {
-    let data = await postData("/api/product/filters", filters);
-    props.SetproductsData(data.products);
-    props.SettotalPages(data.totalPages);
-    window.scrollTo(0, 0);
-  }
+  // async function filterData() {
+  //   let data = await postData("/api/product/filters", filters);
+  //   props.SetproductsData(data.products);
+  //   props.SettotalPages(data.totalPages);
+  //   window.scrollTo(0, 0);
+  // }
 
   useEffect(() => {
     Setfilters((prev) => ({
       ...prev,
-      page: props.page,
+      page:page,
     }));
-  }, [props.page]);
+  }, [page]);
 
   useEffect(() => {
     Setfilters((prev) => ({
@@ -85,8 +85,14 @@ function Sidebar(props) {
 
   useEffect(() => {
     if (filters.catId.length === 0 && filters.subCatId.length === 0) return
+      async function filterData() {
+    let data = await postData("/api/product/filters", filters);
+    SetproductsData(data.products);
+    SettotalPages(data.totalPages);
+    window.scrollTo(0, 0);
+  }
     filterData();
-  }, [filters,filterData]);
+  }, [filters,SetproductsData, SettotalPages]);
 
   return (
     <aside className="w-full bg-white p-3 rounded-lg shadow-sm">

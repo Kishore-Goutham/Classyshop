@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { FaRegUser, FaRegHeart } from "react-icons/fa";
 import { FiShoppingBag, FiLogOut } from "react-icons/fi";
@@ -15,16 +15,17 @@ export default function Address() {
 
   const [open, setOpen] = useState(false);
   const [editData, setEditData] = useState(null);
+    
+  const emptyForm = useMemo(() => ({
+  addressLine1: "",
+  city: "",
+  state: "",
+  pincode: "",
+  country: "India",
+  phone: "",
+  isDefault: false,
+}), []);
 
-  const emptyForm = {
-    addressLine1: "",
-    city: "",
-    state: "",
-    pincode: "",
-    country: "India",
-    phone: "",
-    isDefault: false,
-  };
 
   const [formData, setFormData] = useState(emptyForm);
 
@@ -34,7 +35,7 @@ export default function Address() {
     } else {
       setFormData(emptyForm);
     }
-  }, [editData]);
+  }, [editData,emptyForm]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
