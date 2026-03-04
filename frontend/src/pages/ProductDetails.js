@@ -116,7 +116,7 @@ function ProductDetails() {
          <div className='flex items-center mt-5 gap-5'>
            <Qtybox qty={qty} setQty={setQty}/>
             <div>
-              <Button className='flex gap-2 !bg-[#ff5252] !text-white !p-2' onClick={handleCart}><MdOutlineShoppingCart className='!text-lg'/>Add to Cart</Button>
+              <Button className='flex gap-2 !bg-[#ff5252] !text-white md:!p-2' onClick={handleCart}><MdOutlineShoppingCart className='!text-lg'/><span className='text-xs md:text-base'>Add to Cart</span></Button>
             </div>
             
             <div className='md:text-lg flex gap-1 items-center'>

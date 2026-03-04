@@ -20,7 +20,8 @@ const app = express();
 app.use(cors({
   origin: [
     "https://classyshop-seven.vercel.app", //client
-    "https://classyshop-1j4g.vercel.app"  //admin
+    "https://classyshop-1j4g.vercel.app",//admin
+    "http://localhost:3000"  
   ],
   credentials: true
 }));;
