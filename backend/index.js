@@ -19,8 +19,8 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 app.use(cors({
   origin: [
-    "https://classyshop-seven.vercel.app",
-    "https://classyshop-1j4g.vercel.app/"
+    "https://classyshop-seven.vercel.app", //client
+    "https://classyshop-1j4g.vercel.app"  //admin
   ],
   credentials: true
 }));;
