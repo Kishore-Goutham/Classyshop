@@ -2,7 +2,6 @@ import MyListModel from "../Model/myList.model.js";
 
 export async function addToMyListController(req, res) {
   try {
-    console.log("ji")
     let userId = req.userId;
     let { productId } = req.body;
 

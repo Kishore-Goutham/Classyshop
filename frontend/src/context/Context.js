@@ -19,11 +19,16 @@ function Context({ children }) {
 
   useEffect(() => {
     checkUser();
-    fetchCart();
-    fetchMyList();
-    fetchAddress();
     fetchCatData();
   }, []); // empty dependency
+
+  useEffect(() => {
+  if (!isLogin) return;
+
+  fetchCart();
+  fetchMyList();
+  fetchAddress();
+}, [isLogin]);
 
   useEffect(() => {
     if (addresses.length === 0) return;

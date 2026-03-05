@@ -76,8 +76,7 @@ function ProductDetails() {
     }
   }
 
-  async function addMylist(id) {
-    console.log(id);
+  async function addMylist() {
     try {
       let data = await postData(`/api/myList/addToMyList`, {
         productId: id,
@@ -86,7 +85,7 @@ function ProductDetails() {
         toast.success("Product added to list", {
           position: "top-center",
         });
-        fetchMyList();
+       await fetchMyList();
       }
     } catch (err) {
       toast.error(err, {
