@@ -197,11 +197,11 @@ function ProductDetails() {
               </Button>
             </div>
 
-            <div className="md:text-lg flex gap-1 items-center">
+            <div className="flex items-center ">
               <Button onClick={addMylist} className="!text-black !min-w-2 !rounded-full hover:cursor-pointer">
-                <FaRegHeart className="!text-lg" />
+                <FaRegHeart className="md:!text-lg" />
               </Button>
-              <span>Add to Wishlist</span>
+              <span className="text-sm md:text-lg">Add to Wishlist</span>
             </div>
           </div>
         </div>

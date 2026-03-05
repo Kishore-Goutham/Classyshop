@@ -139,7 +139,7 @@ function Checkout() {
             {cartProducts.map((cart) => {
               return (
                 <div className="flex justify-between mt-4 mb-5">
-                  <div className="w-[50%] flex gap-3">
+                  <div className="w-[70%] flex gap-3">
                     <img
                       src={cart.productId.images} alt='products'
                       className="w-[30%] rounded-md h-20"
