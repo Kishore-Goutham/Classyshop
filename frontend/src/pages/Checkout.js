@@ -7,36 +7,28 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { useEffect } from "react";
+import { deleteData, postData } from "../utils/api";
+
 
 const REACT_APP_RAZORPAY_KEY_ID = process.env.REACT_APP_RAZORPAY_KEY_ID;
 // const REACT_APP_RAZORPAY_KEY_SECRET= REACT_APP_RAZORPAY_KEY_SECRET
 
 function Checkout() {
-  let { cartProducts, userData,selectedAddress, addresses,handleDefault } = useContext(dataContext);
+  let { cartProducts, userData,selectedAddress, addresses,handleDefault,fetchOrders,SetcartProducts} = useContext(dataContext);
   let [totalAmount, setTotalAmount] = useState();
 
-  useEffect(() => {
-    setTotalAmount(
-      cartProducts?.length !== 0
-        ? cartProducts
-            ?.map((item) => parseInt(item.productId.price) * item.quantity)
-            .reduce((total, value) => total + value, 0)
-        : 0,
-    )?.toLocaleString("en-US", { style: "currency", currency: "INR" });
+   useEffect(() => {
+  const total =
+    cartProducts?.length !== 0
+      ? cartProducts
+          .map((item) => item.productId.price * item.quantity)
+          .reduce((total, value) => total + value, 0)
+      : 0;
 
-    localStorage
-      .setItem(
-        "totalAmount",
-        cartProducts?.length !== 0
-          ? cartProducts
-              ?.map((item) => parseInt(item.price) * item.quantity)
-              .reduce((total, value) => total + value, 0)
-          : 0,
-      )
-      ?.toLocaleString("en-US", { style: "currency", currency: "INR" });
-  }, [cartProducts]);
+  setTotalAmount(total);
+}, [cartProducts])
 
-  function checkout(e) {
+ async function checkout(e) {
     e.preventDefault();
 
     if (selectedAddress.length === 0) {
@@ -70,7 +62,7 @@ function Checkout() {
           products: cartProducts,
           paymentId: paymentId,
           payment_status: "COMPLETED",
-          delivery_address: addresses[0],
+          delivery_address: selectedAddress,
           totalAmt: totalAmount,
           date: new Date().toLocaleString("en-US", {
             month: "short",
@@ -79,6 +71,18 @@ function Checkout() {
           }),
         };
         console.log(payLoad)
+        try{
+        let res = await postData("/api/order/createOrder",payLoad);
+        if(res.success){
+          toast.success("Order placed succesfully");
+          await fetchOrders();
+          await deleteData("/api/cart/")
+          SetcartProducts([])
+        }
+        }catch(err){
+
+        }
+        
       },
       theme: {
         color: "#ff5252",

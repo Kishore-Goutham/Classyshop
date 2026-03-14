@@ -12,6 +12,7 @@ import productRouter from './route/product.route.js'
 import cartRouter from './route/cartproduct.route.js'
 import myListRouter from './route/myList.route.js'
 import addressRouter from './route/address.route.js'
+import orderRouter from './route/order.route.js'
 
 const PORT = process.env.PORT || 8000;
 
@@ -43,6 +44,7 @@ app.use('/api/product',productRouter)
 app.use('/api/cart',cartRouter)
 app.use('/api/myList',myListRouter)
 app.use('/api/address',addressRouter)
+app.use('/api/order',orderRouter)
 
 connectDB().then(()=>{
     app.listen(PORT,()=>{

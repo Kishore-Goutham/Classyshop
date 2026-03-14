@@ -20,6 +20,7 @@ import { MdLogout } from "react-icons/md";
 import { fetchDataFromApi } from "../../utils/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { FaXmark } from "react-icons/fa6";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -184,10 +185,7 @@ function Header() {
         <div>
           <div className="px-4 py-7 flex justify-between items-center border-b border-slate-300">
             <h1 className="font-medium text-lg">Shopping Cart</h1>
-            <i
-              className="fa-solid fa-x fa-lg cursor-pointer"
-              onClick={() => setCartoverlay(false)}
-            ></i>
+             <button onClick={() => setCartoverlay(false)}><FaXmark className="hover:text-red-400 text-xl" /></button>
           </div>
           {cartProducts.length > 0 ? (
             cartProducts.map((cart) => {
@@ -215,7 +213,7 @@ function Header() {
                     </p>
                     <MdDelete
                       onClick={() => deleteCart(cart._id)}
-                      className="mt-2 text-red-400 md:text-xl cursor-pointer"
+                      className="mt-2 text-red-400 md:text-xl cursor-pointer hover:text-red-500"
                     />
                   </div>
                 </div>

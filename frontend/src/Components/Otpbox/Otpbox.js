@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Otpbox = ({ length, onChange }) => {
   const [otp, setOtp] = useState(new Array(length).fill(""));
@@ -52,3 +52,4 @@ const Otpbox = ({ length, onChange }) => {
 };
 
 export default Otpbox;
+

@@ -58,7 +58,8 @@ function Login() {
       Setisloading(false);
     }
   }
-    const handleGoogleLogin = async () => {
+  
+  const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth,googleProvider);
       

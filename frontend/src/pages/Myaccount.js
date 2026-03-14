@@ -68,7 +68,7 @@ function Myaccount() {
               Address
             </Link>
 
-            <Link
+            <Link to="/order"
               className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100"
             >
               <FiShoppingBag />

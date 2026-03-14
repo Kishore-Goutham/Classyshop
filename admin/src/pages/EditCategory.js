@@ -17,6 +17,7 @@ import { dataContext } from "../App";
 function EditCategory() {
      let {fetchCat} =useContext(dataContext);
     let navigate = useNavigate()
+ 
 
   let [isloading, Setisloading] = useState(false);
   let [formfields, Setformfields] = useState({

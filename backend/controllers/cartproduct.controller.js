@@ -152,3 +152,23 @@ export async function deleteCartItemController(req, res) {
     });
   }
 }
+
+export async function deleteFullCart(req,res){
+  try{
+    let userId = req.userId;
+    let deleted = await CartProductModel.deleteMany({userId});
+
+      return res.status(200).json({
+      deleted,
+      error: false,
+      success: true,
+    });
+    
+  }catch (error) {
+    return res.status(500).json({
+      message: error.message || error,
+      error: true,
+      success: false,
+    });
+  }
+}

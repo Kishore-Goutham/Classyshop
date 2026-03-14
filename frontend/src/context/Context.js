@@ -15,6 +15,7 @@ function Context({ children }) {
   let [cartProducts, SetcartProducts] = useState([]);
   let [myList, SetmyList] = useState([]);
   const [addresses, setAddresses] = useState([]);
+  let [order, Setorder]= useState([])
   let [selectedAddress, SetselectedAddress] = useState([]);
 
   useEffect(() => {
@@ -28,7 +29,20 @@ function Context({ children }) {
   fetchCart();
   fetchMyList();
   fetchAddress();
+  fetchOrders();
 }, [isLogin]);
+  
+  const fetchOrders = async ()=>{
+       try {
+      let data = await fetchDataFromApi("/api/order/");
+      if (data.success) {
+        console.log(data.orders)
+        Setorder(data.orders);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   useEffect(() => {
     if (addresses.length === 0) return;
@@ -148,6 +162,8 @@ function Context({ children }) {
     fetchAddress,
     handleDefault,
     selectedAddress,
+    order,
+    fetchOrders
   };
 
   return <dataContext.Provider value={value}>{children}</dataContext.Provider>;
